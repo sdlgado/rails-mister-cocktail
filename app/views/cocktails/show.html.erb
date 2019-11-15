@@ -2,9 +2,10 @@
 <p><%= link_to "Edit name", edit_cocktail_path(@cocktail) %></p>
 <br>
 
-<% @cocktail.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+</div>
+
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
 
 <h6>This cocktail has the following ingredients:</h6>
 <ul>
