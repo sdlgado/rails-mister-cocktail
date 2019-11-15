@@ -2,12 +2,15 @@
 
 <p><%= link_to "Add new cocktail", new_cocktail_path %></p>
 
-<% @cocktails.each do |cocktail| %>
-<ul>
-  <li>
-    <%= link_to cocktail.name, cocktail_path(cocktail) %>
-  </li>
-</ul>
-<% end %>
-
-
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <% if cocktail.photo.attached? %>
+      <% url = cl_image_path(cocktail.photo.key) %>
+    <% else %>
+      <% url = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg"  %>
+    <% end %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url %>)">
+      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </div>
+  <% end %>
+</div>
