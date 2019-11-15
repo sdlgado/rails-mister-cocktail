@@ -1,3 +1,6 @@
 <h1>Edit <%= @cocktail.name %></h1>
 
 <%= render "form", cocktail: @cocktail %>
+
+<br>
+<p><%= link_to "Back", cocktail_path(@cocktail) %></p>
