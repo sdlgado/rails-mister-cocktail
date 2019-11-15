@@ -2,6 +2,10 @@
 <p><%= link_to "Edit name", edit_cocktail_path(@cocktail) %></p>
 <br>
 
+<% @cocktail.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <h6>This cocktail has the following ingredients:</h6>
 <ul>
   <% @cocktail.doses.each do |dose| %>
